@@ -1,0 +1,208 @@
+#################################################################
+## Home
+#################################################################
+
+default_view:
+  view: yes
+  name: Home
+  icon: mdi:home
+  entities:
+    - group.nest
+    - group.porch
+    - group.livingroomlights
+    - group.diningroom
+    - group.weather
+    - group.switches
+    - camera.front_door
+    - camera.backyard
+    - group.plexpc
+
+#################################################################
+## Groups
+#################################################################
+
+        ##########################################################
+        ## Rooms
+        ##########################################################
+
+porch:
+  name: Entrance
+  entities:
+    - light.porch
+    - light.entrance
+
+livingroom:
+  name: Living Room
+  entities:
+    - light.back_left
+    - light.back_right
+    - light.front_left
+    - light.front_right
+    - light.go
+    - media_player.tv_un55ju6400
+    - media_player.living_room_tv
+    - media_player.google_home
+    - media_player.vizio
+    - media_player.xbox_one_x
+    - media_player.samsung_un55ju6400
+
+livingroomlights:
+  name: Living Room
+  entities:
+    - light.back_left
+    - light.back_right
+    - light.front_left
+    - light.front_right
+    - light.go
+
+diningroom:
+  name: Dining Room
+  entities:
+    - light.dining_left
+    - light.dining_right
+
+bedroom:
+  name: Bedroom
+  entities:
+    - media_player.bedroom_tv
+    - media_player.bedroom_speaker
+    - switch.wemo_bedroom
+
+shed:
+  name: Shed
+  entities:
+    - media_player.shed_tv
+    - media_player.shed_speaker
+
+basement:
+  name: Basement
+  entities:
+    - switch.wemo_router
+    - media_player.roku
+
+        ##########################################################
+        ## Devices
+        ##########################################################
+
+ring_doorbell:
+  name: Ring Doorbell
+  entities:
+    - camera.front_door
+    - binary_sensor.ring_front_door_ding
+    - sensor.ring_front_door_last_ding
+    - binary_sensor.ring_front_door_motion
+    - sensor.ring_front_door_last_motion
+
+ring_backyard:
+  name: Ring Backyard
+  entities:
+    - camera.backyard
+    - binary_sensor.ring_backyard_motion
+    - sensor.ring_backyard_last_motion
+
+nest:
+  name: Indoor Climate
+  entities:
+    - climate.family_room
+    - sensor.family_room_thermostat_hvac_state
+    - sensor.family_room_thermostat_humidity
+    - sensor.family_room_thermostat_operation_mode
+    - binary_sensor.family_room_thermostat_fan
+    - binary_sensor.home_away
+
+xbox:
+  name: Xbox One Xbox
+  entities:
+    - media_player.xbox_one_x
+
+plexpc:
+  name: Computers
+  entities:
+    - switch.plex
+
+switches:
+  name: Switches
+  entities:
+    - switch.wemo_bedroom
+    - switch.wemo_router
+
+        ##########################################################
+        ## Addons
+        ##########################################################
+
+weather:
+  name: Weather
+  entities:
+    - sensor.weather_condition
+    - sensor.weather_temperature
+    - sensor.weather_humidity
+    - sensor.weather_wind_speed
+    - sensor.weather_cloud_coverage
+    - sensor.weather_rain
+    - sensor.weather_snow
+
+#################################################################
+## Tabs Views
+#################################################################
+
+Ring Security:
+  view: yes
+  icon: mdi:cctv
+  entities:
+    - group.ring_doorbell
+    - group.ring_backyard
+
+Living Room:
+  view: yes
+  icon: mdi:sofa
+  entities:
+    - group.livingroomlights
+    - media_player.tv_un55ju6400
+    - media_player.living_room_tv
+    - media_player.google_home
+    - media_player.vizio
+    - media_player.xbox_one_x
+
+Dining Room:
+  view: yes
+  icon: mdi:silverware-fork-knife
+  entities:
+    - group.diningroom
+
+Shed:
+  view: yes
+  icon: mdi:home-variant
+  entities:
+    - group.shed
+
+Bedroom:
+  view: yes
+  icon: mdi:bed-empty
+  entities:
+    - group.bedroom
+
+Basement:
+  view: yes
+  icon: mdi:stairs
+  entities:
+    - group.basement
+
+Cast:
+  view: yes
+  icon: mdi:cast
+  entities:
+    - media_player.xbox_one_x
+    - media_player.tv_un55ju6400
+    - media_player.living_room_tv
+    - media_player.bedroom_tv
+    - media_player.bedroom_speaker
+    - media_player.shed_tv
+    - media_player.shed_speaker
+    - media_player.roku
+    - media_player.google_home
+    - media_player.vizio
+
+
+#################################################################
+## Troubleshooting
+#################################################################

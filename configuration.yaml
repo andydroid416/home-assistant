@@ -1,0 +1,271 @@
+#################################################################
+## Home Settings
+#################################################################
+
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 123
+
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+
+  # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Toronto
+
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+introduction:
+
+        ##########################################################
+        ## Include Files
+        ##########################################################
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+        ##########################################################
+        ## Themes
+        ##########################################################
+
+# Enables the frontend
+frontend:
+  themes: !include_dir_merge_named themes/
+
+# Enables configuration UI
+config:
+
+        ##########################################################
+        ## DNS
+        ##########################################################
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+        ##########################################################
+        ## Updater
+        ##########################################################
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+        ##########################################################
+        ## Discovery
+        ##########################################################
+
+# Discover some devices automatically
+discovery:
+  ignore:
+    - philips_hue
+
+        ##########################################################
+        ## History Logs
+        ##########################################################
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+        ##########################################################
+        ## Maps Navigation
+        ##########################################################
+
+# Enables a map showing the location of tracked devices
+map:
+
+        ##########################################################
+        ## Sensors
+        ##########################################################
+
+sensor:
+  - platform: yr
+
+  - platform: openweathermap
+    api_key: !secret weather_sensor_api_key_password
+    name: Weather
+    forecast: true
+    monitored_conditions:
+      - weather
+      - temperature
+      - wind_speed
+      - humidity
+      - clouds
+      - rain
+      - snow
+
+  - platform: ring
+    name: Security
+    monitored_conditions:
+      - last_activity
+      - last_ding
+      - last_motion
+      - volume
+      - wifi_signal_category
+      - wifi_signal_strength
+
+        ##########################################################
+        ## Weather
+        ##########################################################
+
+# Track the sun
+sun:
+
+weather:
+  - platform: openweathermap
+    api_key: !secret weather_api_key_password
+    name: Weather
+    mode: hourly
+    latitude: !secret latitude
+    longitude: !secret longitude
+
+        ##########################################################
+        ## Text-to-Speech
+        ##########################################################
+
+tts:
+  - platform: google
+
+        ##########################################################
+        ## Cloud
+        ##########################################################
+
+cloud:
+
+
+#################################################################
+## My Devices
+#################################################################
+
+        ##########################################################
+        ## Philips Hue
+        ##########################################################
+
+hue:
+  bridges:
+    - host: 192.168.1.174
+
+light:
+  platform: hue
+  allow_unreachable: true
+  host: 192.168.1.174
+  allow_in_emulated_hue: true
+  allow_hue_groups: true
+
+        ##########################################################
+        ## Nest Thermostat
+        ##########################################################
+
+nest:
+  client_id: !secret nest_id_password
+  client_secret: !secret nest_client_secret_password
+
+        ##########################################################
+        ## Smart Plug Switches
+        ##########################################################
+
+wemo:
+  static:
+    - 192.168.1.160
+    - 192.168.1.161
+
+        ##########################################################
+        ## Video Game TV Media Players
+        ##########################################################
+
+media_player:
+  - platform: xboxone
+    device: FD00405F65F29896
+    name: Xbox One X
+
+  - platform: samsungtv
+    host: 192.168.1.154
+    mac: BC:14:85:D4:02D6
+
+        ##########################################################
+        ## Ring Doorbell Security
+        ##########################################################
+
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
+
+camera:
+  - platform: ring
+
+binary_sensor:
+  - platform: ring
+    monitored_conditions:
+      - ding
+      - motion
+
+ffmpeg:
+
+        ##########################################################
+        ## Plex PC
+        ##########################################################
+
+switch:
+  - platform: wake_on_lan
+    mac_address: "FC-4D-D4-32-A5-39"
+    name: "Plex"
+    host: 192.168.1.151
+    turn_off:
+      service: hassio.addon_stdin
+      data:
+        addon: core_rpc_shutdown
+        input: PlexPC
+    turn_on:
+      service: hassio.addon_stdin
+      data:
+        addon: core_rpc_shutdown
+        input: PlexPC
+
+#  - platform: wake_on_lan
+#    mac_address: "FC-4D-D4-32-A5-39"
+#    name: "PlexPC"
+#    host: 192.168.1.151
+#    turn_off:
+#      service: shell_command.turnoffpc
+
+#        data:
+#            addon: core_rpc_shutdown
+#            input: Desktop
+
+#    turn_off:
+#      service: shell_command.turnoffpc
+
+#shell_command:
+#  turnoffpc: 'net rpc shutdown -r -f -I 192.168.1.151 -U Plex%SwiThirty0'
+
+#################################################################
+## Addons
+#################################################################
+
+
+
+#################################################################
+## Troubleshooting
+#################################################################
+
+

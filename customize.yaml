@@ -1,0 +1,191 @@
+#################################################################
+## Customize
+#################################################################
+
+        ##########################################################
+        ## Thermostat
+        ##########################################################
+
+    climate.family_room:
+      entity_picture: /local/icons/nest.png
+
+    sensor.family_room_thermostat_hvac_state:
+      icon: mdi:air-conditioner
+      friendly_name: HVAC Status
+
+    sensor.family_room_thermostat_operation_mode:
+      icon: mdi:leaf
+      friendly_name: Mode
+
+    binary_sensor.family_room_thermostat_fan:
+      icon: mdi:fan
+      friendly_name: Fan
+
+    binary_sensor.home_away:
+      icon: mdi:home-map-marker
+      friendly_name:  Home Away
+
+        ##########################################################
+        ##  Cast Devices
+        ##########################################################
+
+    media_player.living_room_tv:
+       icon: mid:cast
+       friendly_name: Samsung Cast
+
+    media_player.tv_un55ju6400:
+       icon: mid:cast
+       friendly_name: Samsung TV
+
+    media_player.samsung_55_tv:
+       icon: mid:cast
+       friendly_name: Samsung TV Controls
+
+        ##########################################################
+        ## Google Home
+        ##########################################################
+
+
+        ##########################################################
+        ## Lights
+        ##########################################################
+
+    light.porch:
+       friendly_name: Porch
+       icon: mdi:ceiling-light
+
+    light.entrance:
+       friendly_name: Entrance
+       icon: mdi:lightbulb
+
+    light.front_left:
+       friendly_name: Front Left
+       icon: mdi:lightbulb
+
+    light.front_right:
+       friendly_name: Front Right
+       icon: mdi:lightbulb
+
+    light.back_left:
+       friendly_name: Back Left
+       icon: mdi:lightbulb
+
+    light.back_right:
+       friendly_name: Back Right
+       icon: mdi:lightbulb
+
+    light.dining_left:
+       friendly_name: Dining Left
+       icon: mdi:lightbulb
+
+    light.dining_right:
+       friendly_name: Dining Right
+       icon: mdi:lightbulb
+
+    light.go:
+       friendly_name: Go
+       icon: mdi:radiobox-marked
+
+        ##########################################################
+        ## Ring Doorbells
+        ##########################################################
+
+    binary_sensor.ring_front_door_ding:
+       friendly_name: Doorbell Ring
+       icon: mdi:doorbell-video
+
+    sensor.ring_front_door_last_ding:
+       friendly_name: Last Doorbell Ring
+       icon: mdi:history
+
+    binary_sensor.ring_front_door_motion:
+       friendly_name: Motion
+
+    sensor.ring_front_door_last_motion:
+       friendly_name: Last Motion Detected
+       icon: mdi:history
+
+    binary_sensor.ring_backyard_motion:
+       friendly_name: Motion
+       icon: mdi:cctv
+
+    sensor.ring_backyard_last_motion:
+       friendly_name: Last Motion Detected
+       icon: mdi:history
+
+        ##########################################################
+        ## Plex PC
+        ##########################################################
+
+    switch.plex:
+       icon: mdi:server-network
+       friendly_name: Plex
+
+        ##########################################################
+        ## Xbox
+        ##########################################################
+
+    media_player.xbox_one_x:
+       friendly_name: Xbox One X
+       icon: mdi:xbox
+
+        ##########################################################
+        ## Smart Plug Switches
+        ##########################################################
+
+    switch.wemo_bedroom:
+      icon: mdi:power-socket-us
+      friendly_name: Wemo Bedroom
+
+    switch.wemo_router:
+      icon: mdi:power-socket-us
+      friendly_name: Wemo Router
+
+
+        ##########################################################
+        ##  Rooms
+        ##########################################################
+
+    group.livingroomlights:
+      icon: mdi:sofa
+      friendly_name: Living Room
+
+    group.diningroom:
+      icon: mdi:silverware-fork-knife
+      friendly_name: Dining Room
+
+    group.living_room:
+      icon: mdi:sofa
+      friendly_name: Living Room
+
+        ##########################################################
+        ## Weather
+        ##########################################################
+
+    sensor.weather_cloud_coverage:
+      icon: mdi:weather-cloudy
+      friendly_name: Cloud Coverage
+
+    sensor.weather_wind_speed:
+      icon: mdi:weather-windy
+      friendly_name: Wind Speed
+
+    sensor.weather_snow:
+      icon: mdi:weather-snowy
+      friendly_name: Snow
+
+    sensor.weather_rain:
+      icon: mdi:weather-pouring
+      friendly_name: Rain
+
+    sensor.weather_humidity:
+      icon: mdi:water
+      friendly_name: Humidity
+
+    sensor.weather_condition:
+      icon: mdi:weather-partlycloudy
+      friendly_name: Weather Condition
+
+        ##########################################################
+        ## Troubleshooting
+        ##########################################################
